@@ -3,6 +3,7 @@ package me.hourui.echo.provider;
 import me.hourui.echo.bean.Location;
 import me.hourui.echo.bean.User;
 
+import java.util.Date;
 import java.util.List;
 
 public interface Echo {
@@ -35,5 +36,15 @@ public interface Echo {
     List<Location> echo13();
 
     Location[] echo14();
+
+    Date echo15();
+
+    Date echo16();
+
+    String echo17();
+
+    void echo18();
+
+    void echo19();
 
 }

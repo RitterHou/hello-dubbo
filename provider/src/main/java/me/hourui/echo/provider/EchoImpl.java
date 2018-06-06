@@ -1,17 +1,31 @@
 package me.hourui.echo.provider;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import lombok.extern.slf4j.Slf4j;
 import me.hourui.echo.bean.Location;
 import me.hourui.echo.bean.Name;
 import me.hourui.echo.bean.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
+@Slf4j
 @Service(version = "1.0.0")
 public class EchoImpl implements Echo {
+
+    private AtomicInteger i = new AtomicInteger(0);
+
+    {
+        new Timer(true).schedule(new TimerTask() {
+            @Override
+            public void run() {
+//                log.info("{} in one minute", i);
+                int j = i.get();
+                i.set(0);
+                System.out.println(j);
+            }
+        }, 0, 1000);
+    }
 
     @Override
     public User echo(String firstName, String lastName, int age, double salary, boolean graduated) {
@@ -66,6 +80,8 @@ public class EchoImpl implements Echo {
         user.setWorkDays(workDays);
         user.setFuck(list);
         user.setBooks(books);
+
+        System.out.println(user);
 
         return user;
     }
@@ -154,6 +170,32 @@ public class EchoImpl implements Echo {
                 Location.builder().province("浙江省").city("杭州市").street("余杭区").build(),
                 Location.builder().province("江苏省").city("南京市").street("雨花区").build()
         };
+    }
+
+    @Override
+    public Date echo15() {
+        return new Date();
+    }
+
+    @Override
+    public Date echo16() {
+        long now = System.currentTimeMillis();
+        return new Date(now - now % 60000L);
+    }
+
+    @Override
+    public String echo17() {
+        throw new RuntimeException("呵呵呵呵呵");
+    }
+
+    @Override
+    public void echo18() {
+        i.getAndIncrement();
+    }
+
+    @Override
+    public void echo19() {
+
     }
 
 }

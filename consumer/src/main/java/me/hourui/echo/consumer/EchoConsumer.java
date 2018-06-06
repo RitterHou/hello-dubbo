@@ -15,7 +15,17 @@ public class EchoConsumer {
 //        System.out.println("I send something to provider: " + name);
 //        System.out.println(echo.echo("张", "三", 18, 2000, false));
 
-        System.out.println(echo.echo7(10000000000L));
+//        System.out.println(echo.echo15());
+//        System.out.println(echo.echo16());
+//        try {
+//            echo.echo17();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        while (true) {
+            echo.echo18();
+        }
+
     }
 
 }
