@@ -22,10 +22,9 @@ public class EchoConsumer {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-        while (true) {
-            echo.echo18();
-        }
-
+//        System.out.println(echo.echo6(100000.0));
+//        echo.test2("🐶");
+//        System.out.println(echo.getCity(CityEnum.Nanjing));
     }
 
 }
